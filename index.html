@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>to to list </h1>
+        <input type="text" name="inp" id="inp">
+        <button onclick="add()" >add todo</button>
+    </div>
+  <ul></ul>
+
+
+
+  <script>
+    a = [];
+    function add(){
+        let b = document.querySelector("#inp").value;
+        if(b){
+            a.push(b);
+            document.querySelector("#inp").value = ''
+            show()
+
+        }else {
+            alert("write something")
+        }
+    }
+
+    function show(){
+        document.querySelector("ul").innerHTML = ''
+        a.forEach((val,i) => {
+            document.querySelector("ul").innerHTML +=  ` <li>  ${val}   <button onclick="dilit( ${i} )" > delete </button>   <button onclick="edit( ${i} )"  > edit   </button>  </li>    `
+
+        })
+    }
+
+    function dilit(i){
+        alert("do you want to delete")
+        a.splice(i,1)
+        show()
+        
+    }
+
+    function edit(i){
+        var c= window.prompt("enter new to do")
+        if(c){
+            a[i] = c;
+            show() 
+        }else{
+            alert("write something")
+        }
+    }
+
+    
+
+
+  </script>
+    
+</body>
+</html>
